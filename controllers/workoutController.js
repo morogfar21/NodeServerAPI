@@ -28,6 +28,7 @@ module.exports.addToUser = async function (req, res) {
 //
 module.exports.listOfUserWorkouts = async function (req, res) {
     const Userid = req.user.id;
+    console.log(Userid);
     await userColl.findOne({_id: Userid}).populate('workouts')
     .exec(function(err, user){
             if(err) {
